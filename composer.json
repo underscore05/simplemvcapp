@@ -1,8 +1,11 @@
 {
-	"repositories":[
-		{
-			"type": "vcs",
-			"url": "/Users/richardroque/www/sandbox/simplemvc"			
-		}
-	]	
+    "repositories":[
+        {
+            "type": "vcs",
+            "url": "/Users/richardroque/www/sandbox/simplemvc"          
+        }
+    ],
+    "require": {
+        "underscore05/simplemvc":"@dev"
+    }
 }

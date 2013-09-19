@@ -11,48 +11,65 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="../../assets/js/html5shiv.js"></script>
-      <script src="../../assets/js/respond.min.js"></script>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
     <![endif]-->
   </head>
 
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
+    
+    <div class="container" style="padding:50px 0">
+        <div class="cart" style="border:1px solid #369; height:400px;">
+            <div></div>
+            <div class="actions">
+                <a href="javascript:void()"> Task#1</a>
+                <a href="javascript:void()"> Task#2</a>
+                <a href="javascript:void()"> Task#3</a>
+            </div>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+        
+        <?php echo $content; ?>        
     </div>
-
-    <div class="container">      
-        <?php echo $content; ?>
-    </div><!-- /.container -->
-
-
+    
+    <div class="container" style="padding:50px 0">
+        <?php echo $content; ?>        
+    </div>    
+    
+    
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../assets/js/jquery.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/mootools-core-1.4.5.js"></script>
+    <script src="assets/js/mootools-more-1.4.0.1.js"></script>
+    <script src="assets/js/ContextMenu.js"></script>
+    <script type="text/javascript">
+        
+        document.addEvent('domready', function() {            
+            var tbl = $$(".table");
+            
+            new ContextMenu(tbl[0], {
+                target : 'tbody > tr',
+                onShow: function(evt, elem) {}
+            });
+            new ContextMenu(tbl[1], {
+                target : 'tbody > tr',
+                onShow: function(evt, elem) {}
+            });
+            
+            new ContextMenu($$('.cart')[0], {                
+                onShow: function(evt, elem) {}
+            });
+
+            tbl.addEvent('click:relay(a.delete)', function(evt, elem){
+                alert("Delete item #"+elem.get('data-id'));
+            });
+            tbl.addEvent('click:relay(a.view)', function(evt, elem){
+                alert("View item #"+elem.get('data-id'));
+            });
+        });
+    </script>
   </body>
 </html>
