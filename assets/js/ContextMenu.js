@@ -33,7 +33,7 @@ var ContextMenu = new Class({
 		}
 		
 		var actions = elem.getElements('.actions a');
-		//Get previous siblings and attach itself to it.
+		//Get previous sibling of .action element and attach Object to it.
 		elem.getElement('.actions !~').adopt(self); 
 		self.menuList.empty();
 		actions.each(function(a) {
